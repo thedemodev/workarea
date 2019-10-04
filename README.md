@@ -81,27 +81,27 @@ For more information on usage and troubleshooting, see the [workarea-demo](https
 
 Getting Started
 --------------------------------------------------------------------------------
-We'll assume you have [Docker desktop](https://www.docker.com/products/docker-desktop) and [Ruby >= 2.4.0, < 2.7.0](https://github.com/rbenv/rbenv#installation) installed.
+We'll assume you have [Docker desktop](https://www.docker.com/products/docker-desktop) and [Ruby 2.4 through 2.7](https://github.com/rbenv/rbenv#installation) installed.
+
+**NOTE:** If you're generating a new Rails app, be sure to include the
+switches `--skip-spring`, `--skip-puma`, and `--skip-bootsnap` to
+prevent any errors.
 
 1. Add the `workarea` gem to the `Gemfile` in your Rails 5.2 app:
 
-        gem 'workarea', '~> 3.4.6'
+        $ bundle add workarea
 
-2. Install the gems:
-
-        $ bundle install
-
-3. Start the workarea services (uses Docker):
+2. Start the workarea services (uses Docker):
 
         $ bin/rails workarea:services:up
 
-4. Run the Workarea Rails generator:
+3. Run the Workarea Rails generator:
 
         $ bin/rails generate workarea:install
 
    This generator will mount the Workarea engines in `config/routes.rb`, and add Workarea seeds to `db/seeds.rb`.
 
-5. Run the database seeds:
+4. Run the database seeds:
 
         $ bin/rails db:seed
 
