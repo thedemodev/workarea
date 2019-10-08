@@ -1,0 +1,20 @@
+name: GitHub Issue Created
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create:
+    name: Create Jira Issue
+    steps:
+      - uses: atlassian/gajira-login@v2.0.0
+        env:
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_BASE_URL: https://workarea.atlassian.net
+      - uses: atlassian/gajira-create@v2.0.0
+        with:
+          project: WORKAREA
+          issuetype: Story
+          summary: ${{ event.issue.title }}
+          description: ${{ event.issue.body }}
