@@ -1291,6 +1291,10 @@ module Workarea
         'Workarea::Catalog::Category' => 7,
         'Workarea::Navigation::Menu' => 1_000
       }
+
+      # Webpacker support
+      config.enable_webpacker = true
+      config.asset_manifests.storefront_javascript_pack = 'storefront'
     end
   end
 end
